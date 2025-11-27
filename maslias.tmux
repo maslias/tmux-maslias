@@ -15,7 +15,7 @@ get_tmux_option() {
 }
 
 # colors
-color_normal=$(get_tmux_option "@tmux-maslias-color_normal" '#ffbd5e')
+color_normal=$(get_tmux_option "@tmux-maslias-color-normal" '#ffbd5e')
 color_status=$(get_tmux_option "@tmux-maslias-color-status" '#f1ff5e')
 color_remote=$(get_tmux_option "@tmux-maslias-color-remote" '#ff6e5e')
 color_bg=$(get_tmux_option "@tmux-maslias-color-bg" '0')
