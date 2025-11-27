@@ -42,13 +42,13 @@ tmux set-option message-style "fg=$color_normal,bg=$color_bg"
 tmux set-option message-command-style "fg=$color_white,bg=$color_normal"
 
 
-tmux set-option pane-border-style "fg=$color_dark"
-tmux set-option pane-active-border-style "fg=$color_normal"
-tmux set-option display-panes-active-colour "$color_white"
-tmux set-option display-panes-colour "$color_normal"
-
-tmux set-window-option -g window-status-separator "$window_status_separator"
-tmux set-option -g window-status-format "$window_status_format"
-tmux set-option -g window-status-current-format "$window_status_current_format"
-tmux set-option -g status-left "$status_left"
-tmux set-option -g status-right "$status_right"
+# tmux set-option pane-border-style "fg=$color_dark"
+# tmux set-option pane-active-border-style "fg=$color_normal"
+# tmux set-option display-panes-active-colour "$color_white"
+# tmux set-option display-panes-colour "$color_normal"
+#
+# tmux set-window-option -g window-status-separator "$window_status_separator"
+# tmux set-option -g window-status-format "$window_status_format"
+# tmux set-option -g window-status-current-format "$window_status_current_format"
+# tmux set-option -g status-left "$status_left"
+# tmux set-option -g status-right "$status_right"
