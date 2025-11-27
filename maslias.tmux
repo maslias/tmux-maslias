@@ -29,11 +29,13 @@ window_status_current_format=" #[fg=$color_white]#W #[fg=$color_normal,nobold,no
 window_status_format=" #[fg=$color_grey]#W #[fg=$color_grey,nobold,nodim]󰒅 "
 
 status_left="#[fg=$color_bg,bold,nodim]#{?client_prefix,#[bg=$color_status],#[bg=$color_normal]} TMX #[bg=$color_bg]#[fg=$color_grey,nobold,nodim] #S"
-status_right="#[fg=$color_white] #(hostname -s)#[fg=$color_bg]#{?client_prefix,#[bg=$color_status],#[bg=$color_normal]}   "
+status_right="#[fg=$color_white]  #(cd #{pane_current_path} && ~/.tmux/plugins/tmux-maslias/get_hostname.sh) #[fg=$color_bg]#{?client_prefix,#[bg=$color_status],
+#{?#{==:#{pane_current_command},ssh},#[bg=$color_remote],#[bg=$color_normal]}}   "
 
 tmux set-option status-bg default
 tmux set-option status-style bg=default
 
+tmux set-option status-interval 2
 tmux set-option status-left-length 200
 tmux set-option status-right-length 200
 tmux set-option status-justify "absolute-centre"
