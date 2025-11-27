@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+CURRENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
 get_tmux_option() {
   local option=$1
   local default_value="$2"
@@ -29,8 +31,7 @@ window_status_current_format=" #[fg=$color_white]#W #[fg=$color_normal,nobold,no
 window_status_format=" #[fg=$color_grey]#W #[fg=$color_grey,nobold,nodim]󰒅 "
 
 status_left="#[fg=$color_bg,bold,nodim]#{?client_prefix,#[bg=$color_status],#{?#{==:#{pane_current_command},ssh},#[bg=$color_remote],#[bg=$color_normal]}} TMX #[bg=$color_bg]#[fg=$color_grey,nobold,nodim] #S"
-status_right="#[fg=$color_white]  #(cd #{pane_current_path} && ~/.tmux/plugins/tmux-maslias/get_hostname.sh) #[fg=$color_bg]#{?client_prefix,#[bg=$color_status],
-#{?#{==:#{pane_current_command},ssh},#[bg=$color_remote],#[bg=$color_normal]}}   "
+status_right="#[fg=$color_white]  #($CURRENT_DIR/get_hostname.sh #{pane_pid}) #[fg=$color_bg]#{?client_prefix,#[bg=$color_status],#{?#{==:#{pane_current_command},ssh},#[bg=$color_remote],#[bg=$color_normal]}}   "
 
 tmux set-option status-bg default
 tmux set-option status-style bg=default
@@ -54,3 +55,7 @@ tmux set-option -g window-status-format "$window_status_format"
 tmux set-option -g window-status-current-format "$window_status_current_format"
 tmux set-option -g status-left "$status_left"
 tmux set-option -g status-right "$status_right"
+
+# Refresh status bar after initialization to fix display issues on startup
+tmux run-shell -b "sleep 0.5 && tmux refresh-client -S"
+tmux run-shell -b "sleep 2 && tmux refresh-client -S"
