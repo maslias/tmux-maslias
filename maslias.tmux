@@ -39,7 +39,7 @@ tmux set-option status-style bg=default
 tmux set-option status-interval 2
 tmux set-option status-left-length 200
 tmux set-option status-right-length 200
-tmux set-option status-justify "absolute-centre"
+tmux set-option status-justify "centre"
 
 tmux set-option message-style "fg=$color_normal,bg=$color_bg"
 tmux set-option message-command-style "fg=$color_white,bg=$color_normal"
