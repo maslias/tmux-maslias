@@ -56,11 +56,4 @@ tmux set-option -g window-status-current-format "$window_status_current_format"
 tmux set-option -g status-left "$status_left"
 tmux set-option -g status-right "$status_right"
 
-# Refresh status bar after initialization to fix display issues on startup
-tmux run-shell -b "sleep 0.5 && tmux refresh-client"
-
-# Hook into session creation to refresh status bar for new sessions
-tmux set-hook -g after-new-session "run-shell 'sleep 0.3 && tmux refresh-client'"
-tmux set-hook -g after-new-window "run-shell 'sleep 0.3 && tmux refresh-client'"
-
 
